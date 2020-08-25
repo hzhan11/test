@@ -15,7 +15,7 @@ pipeline {
     stage('install') {
       steps {
         fileExists 'app\\build\\outputs\\apk\\debug\\app-debug.apk'
-        bat 'adb install'
+        bat 'adb install app\\build\\outputs\\apk\\debug\\app-debug.apk'
       }
     }
 
