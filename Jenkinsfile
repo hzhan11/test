@@ -5,6 +5,7 @@ pipeline {
       steps {
         echo 'start to build'
         bat 'dir'
+        bat 'gradlew.bat build'
       }
     }
 
