@@ -2,6 +2,9 @@ pipeline {
   agent any
   stages {
     stage('build') {
+      environment {
+        ANDROID_SDK_ROOT = 'C:\\Users\\xjtu_\\AppData\\Local\\Android\\Sdk'
+      }
       steps {
         echo 'start to build'
         bat 'dir'
