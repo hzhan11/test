@@ -20,9 +20,20 @@ pipeline {
     }
 
     stage('test') {
-      steps {
-        echo 'start test'
-        bat 'adb shell am instrument -w -r    -e debug false -e class \'com.example.myapplication.ExampleInstrumentedTest\' com.example.myapplication.test/androidx.test.runner.AndroidJUnitRunner'
+      parallel {
+        stage('test') {
+          steps {
+            echo 'start test'
+            bat 'adb shell am instrument -w -r    -e debug false -e class \'com.example.myapplication.ExampleInstrumentedTest\' com.example.myapplication.test/androidx.test.runner.AndroidJUnitRunner'
+          }
+        }
+
+        stage('test2') {
+          steps {
+            bat 'echo "hello test2"'
+          }
+        }
+
       }
     }
 
