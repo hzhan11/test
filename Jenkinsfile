@@ -1,9 +1,35 @@
 pipeline {
   agent any
   stages {
-    stage('print') {
+    stage('build') {
       steps {
-        echo 'Hello'
+        echo 'start to build'
+        bat 'dir'
+      }
+    }
+
+    stage('install') {
+      steps {
+        bat 'adb install'
+        fileExists '1.apk'
+      }
+    }
+
+    stage('test') {
+      steps {
+        echo 'start test'
+      }
+    }
+
+    stage('report') {
+      steps {
+        echo 'start reporting'
+      }
+    }
+
+    stage('clean') {
+      steps {
+        echo 'clean environment'
       }
     }
 
