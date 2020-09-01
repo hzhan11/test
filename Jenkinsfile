@@ -40,6 +40,7 @@ pipeline {
     stage('report') {
       steps {
         echo 'start reporting'
+        mail(subject: 'test complete', body: 'test is complete', from: 'jenkins@haoxiang.com', to: '13916977503@163.com')
       }
     }
 
